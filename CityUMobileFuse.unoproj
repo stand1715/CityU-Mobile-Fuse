@@ -1,0 +1,27 @@
+{
+  "InternalsVisibleTo": [],
+  "Packages": [   
+    "Fuse.Animations",
+    "Fuse.BasicTheme",
+    "Fuse.Controls",
+    "Fuse.Designer",
+    "Fuse.Drawing",
+    "Fuse.Drawing.Primitives",
+    "Fuse.Effects",
+    "Fuse.Elements",
+    "Fuse.Entities",
+    "Fuse.Gestures",
+    "Fuse.Desktop",
+    "Fuse.iOS",
+    "Fuse.Android",
+    "Fuse.Navigation",
+    "Fuse.Reactive",
+    "Fuse.Shapes",
+    "Fuse.Triggers",
+    "FuseCore"
+  ],
+  "Projects": [],
+  "Includes": [
+    "*"
+  ]
+}

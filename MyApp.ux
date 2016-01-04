@@ -1,0 +1,91 @@
+<App Theme="Basic">
+	<EdgeNavigator ux:Name="EdgeNavigator">
+		<JavaScript>
+		var Observable = require("FuseJS/Observable");
+
+		module.exports = {
+		};
+		</JavaScript>
+
+		<!-- Add a panel to the left edge -->
+		<StackPanel Width="180" ux:Name="menu" EdgeNavigation.Edge="Left">
+
+			<StatusBarBackground Background="#909498" />
+
+			<!-- Menu -->
+			<Rectangle Height="50" Fill="#78ADDD">
+				<Text Alignment="Center" FontSize="18"  Value="CITYU MOBILE" TextColor="#fff">
+					<Font File="assets/fonts/Roboto-Bold.ttf" />
+				</Text>
+			</Rectangle>
+
+			<!-- TODO Change to list later -->
+			<Grid RowData="1*, 1*" Height="100" >
+				<Style>
+					<Text FontSize="16" Alignment="Center"/>
+				</Style>
+				<Button>
+					<Text Value="News"/>
+					<Clicked>
+						<Set pages.Active="News"/>
+					</Clicked>
+				</Button>
+				<Button>
+					<Text Value="Disclaimer"/>
+					<Clicked>
+						<Set pages.Active="Disclaimer"/>
+					</Clicked>
+				</Button>
+			</Grid>
+
+		</StackPanel>
+
+		<DockPanel Background="#fff">
+			<!-- Use this to move the main app area with the side menu -->
+			<Translation ux:Name="mainAppTranslation" />
+
+			<StatusBarBackground Dock="Top" />
+			<BottomFrameBackground Dock="Bottom" />
+
+			<StackPanel Dock="Top">
+
+				<!-- This is the top ledge -->
+				<Grid ColumnData="auto,1*,auto"  Background="White">
+					<Panel Margin="7,5,5,5" Height="32" Width="32" HitTestMode="LocalBounds">
+						<Clicked>
+							<Set EdgeNavigator.Active="menu" />
+						</Clicked>
+						<Rectangle ux:Name="topRectangle" Height="2" Width="26" Fill="#000">
+							<Translation Y="-9" ux:Name="topMenuTranslation" />
+						</Rectangle>
+						<Rectangle ux:Name="middleRectangle" Height="2" Width="26" Fill="#000" />
+						<Rectangle ux:Name="bottomRectangle" Height="2" Width="26" Fill="#000">
+							<Translation Y="9" ux:Name="bottomMenuTranslation" />
+						</Rectangle>
+					</Panel>
+
+					<Text FontSize="22" Alignment="CenterLeft" TextAlignment="Center"
+						Value="NEWS" Padding="2">
+						<Font File="assets/fonts/AlegreyaSans-Bold.otf" />
+					</Text>
+
+				</Grid>
+				<Rectangle Height="1" Margin="0,5,0,0" Fill="#333c48" />
+			</StackPanel>
+
+			<!-- scroll area -->
+			<Style>
+				<Text TextColor="#000" Alignment="Center" FontSize="30"/>
+			</Style>
+			<StateGroup ux:Name="pages">	
+				<State ux:Name="News">
+					<News/>
+				</State>
+				<State ux:Name="Disclaimer">
+					<Disclaimer/>
+				</State>
+			</StateGroup>
+
+		</DockPanel>
+	</EdgeNavigator>
+</App>
